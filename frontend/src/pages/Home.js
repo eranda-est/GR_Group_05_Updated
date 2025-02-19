@@ -21,6 +21,7 @@ function MainPage() {
                 </div>
                 <div className="user-home-industries-section">
                     <h2 className="user-home-industries-title">INDUSTRIES</h2>
+                    
                 </div>
             </div>
             <div className="container3">
