@@ -22,6 +22,25 @@ app.get("/", (req, res) => {
     res.send("Backend is running!");
 });
 
+// API Route to Store Code in Database
+app.post("/api/enter-code", (req, res) => {
+    const { code } = req.body;
+
+    if (!code) {
+        return res.status(400).json({ error: "Code is required" });
+    }
+
+    const query = "INSERT INTO codes (code) VALUES (?)";
+
+    db.query(query, [code], (err, result) => {
+        if (err) {
+            console.error("Error inserting code:", err);
+            return res.status(500).json({ error: "Database error" });
+        }
+        res.status(201).json({ message: "Code saved successfully", id: result.insertId });
+    });
+});
+
 // Routes
 app.use('/api/user', userRoutes);
 app.use('/api/auth', fpRoutes);

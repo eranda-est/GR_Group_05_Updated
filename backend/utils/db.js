@@ -1,5 +1,5 @@
-require("dotenv").config();
-const mysql = require("mysql2");
+import dotenv from "dotenv";
+import mysql from "mysql2";
 
 dotenv.config();
 
@@ -8,7 +8,7 @@ const db = mysql.createConnection({
     user: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_NAME || "gamage_recruiters_db",
-    port: process.env.DB_PORT || 3307
+    port: process.env.DB_PORT || 3307 // Default to 3307, change if needed
 });
 
 db.connect(err => {
@@ -20,4 +20,4 @@ db.connect(err => {
     }
 });
 
-module.exports = db;
+export default db;
