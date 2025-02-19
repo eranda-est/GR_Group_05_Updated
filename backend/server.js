@@ -1,23 +1,26 @@
+import express from 'express'; 
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import dotenv from 'dotenv';
+import db from './utils/db.js';
+import userRoutes from './Routes/UserRoutes.js';
+import fpRoutes from './Routes/fpRoutes.js';
+import otpRoutes from './Routes/otpRoutes.js';
+import cpRoutes from './Routes/cpRoutes.js';
 
-require("dotenv").config(); // Load environment variables
-const express = require("express");
-const cors = require("cors");
-const db = require("./utils/db");
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 7000; // Use the PORT from .env, fallback to 5000 if undefined
+const PORT = process.env.PORT || 7000; // Use the PORT from .env, fallback to 7000 if undefined
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
 // Test Route
 app.get("/", (req, res) => {
     res.send("Backend is running!");
 });
-
-
-
 
 // API Route to Store Code in Database
 app.post("/api/enter-code", (req, res) => {
@@ -38,10 +41,11 @@ app.post("/api/enter-code", (req, res) => {
     });
 });
 
-
-
-
-
+// Routes
+app.use('/api/user', userRoutes);
+app.use('/api/auth', fpRoutes);
+app.use('/api/otp', otpRoutes);
+app.use('/api/password', cpRoutes);
 
 // Start Server
 app.listen(PORT, () => {
