@@ -1,0 +1,230 @@
+
+/* General Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f7fc;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container Layout */
+.container-epwsk {
+  display: flex;
+  width: 90%;
+  max-width: 900px;
+  height: 450px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 200px; 
+}
+
+
+/* Left Section - Image as Background */
+.left-section-epwsk {
+  flex: 1;
+  background: url('../../assets/images.png') no-repeat center center;
+  background-size: cover; /* Makes sure the image covers the full section */
+  background-position: center; /* Centers the image */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.left-section-epwsk img {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Right Section - Form */
+.right-section-epwsk {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  padding: 20px;
+}
+
+.form-card-epwsk {
+  color: black;
+  width: 100%;
+  max-width: 320px;
+  text-align: center;
+  
+}
+.design-container-epwsk{
+  
+  position: absolute;
+  bottom: 561px;
+  top:px;   /* Position the logo 10px from the top */
+  left: 1007px; 
+}
+.design-container-epwsk img {
+  width: 150px; /* Adjust width as needed */
+  height: auto;
+}
+
+.logo-container-epwsk {
+  position: absolute;
+  bottom: 650px;
+  top:px;   /* Position the logo 10px from the top */
+  left: 810px;  /* Position the logo 10px from the left */
+}
+
+.logo-container-epwsk img {
+  width: 60px; /* Set the logo size (adjust as needed) */
+  height: auto; /* Maintain aspect ratio */
+}
+
+h4 {
+  margin-bottom: 20px;
+  text-decoration: double;
+  
+}
+
+input {
+  width: 90%;
+  padding: 5px;
+  color: black;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #c6d7f7;
+  
+}
+/* Change placeholder text color to black and reduce font size */
+ input::placeholder {
+  color: black;  /* Change placeholder text color to black */
+  font-size: 14px; /* Make the placeholder text smaller */
+}
+
+
+button {
+  width: 90%;
+  padding: 5px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #102a65;
+}
+
+
+
+
+
+
+
+.left-section-epwsk {
+  position: relative;
+  width: 100%;
+  height: 550px;
+}
+
+.left-section-epwsk img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.left-section-epwsk .mobile-img {
+  display: none; /* Hide mobile image by default */
+}
+
+@media screen and (max-width: 480px) {
+  .left-section-epwsk .desktop-img {
+    display: none; /* Hide desktop image on mobile */
+  }
+
+  .left-section-epwsk .mobile-img {
+    display: block; /* Show mobile image on mobile view */
+  }
+}
+
+
+
+@media screen and (max-width: 480px) {
+  .left-section-epwsk {
+    background-image: url("../../assets/mobile-extra-img.png"); /* Change image for mobile */
+}
+  .container-epwsk {
+      flex-direction: column; /* Stack sections vertically */
+      width: 95%;
+      height: auto;
+      max-width: 400px;
+      margin-top: 70px;
+      position: relative; /* Ensure positioning context */
+  }
+
+  .left-section-epwsk {
+      flex: none;
+      height: 350px;
+      order: -1; /* Moves the left image to the top */
+  }
+
+  .left-section-epwsk img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+  
+
+  /* Curve Image Positioning */
+  .design-container-epwsk {
+      position: absolute;
+      bottom: -20px; /* Moves it below the left-section */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%; /* Adjust width as needed */
+      z-index: 2; /* Ensure it stays above other elements */
+  }
+
+  .design-container-epwsk img {
+      width: 0%;
+      height: auto;
+  }
+
+  .right-section-epwsk {
+      flex: none;
+      padding: 15px;
+      position: relative;
+      z-index: 3; /* Ensure form stays on top */
+  }
+
+  .form-card-epwsk {
+      max-width: 100%;
+  }
+
+  /* Fix logo positioning */
+  .logo-container-epwsk {
+      position: absolute;
+      top: -300px; /* Adjust if needed */
+      left: 20%;
+      transform: translateX(-50%);
+      width: -250px;
+  }
+
+  .logo-container-epwsk img {
+      width: 50px;
+  }
+
+  input, button {
+      width: 100%;
+      font-size: 14px;
+  }
+
+  h4 {
+      font-size: 16px;
+  }
+}
